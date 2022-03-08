@@ -1,5 +1,6 @@
 {
   "item.geotools.ruby": "Ruby",
   "block.geotools.total_station": "Total station",
-  "block.geotools.reflector": "Reflector"
+  "block.geotools.reflector": "Reflector",
+  "block.geotools.test": "Test block"
 }

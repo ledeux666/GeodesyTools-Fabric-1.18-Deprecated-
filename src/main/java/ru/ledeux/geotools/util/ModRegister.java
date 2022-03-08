@@ -22,5 +22,8 @@ public class ModRegister {
 
         Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "reflector"), REFLECTOR);
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "reflector"), REFLECTOR_BI);
+
+        Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "test"), TEST);
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "test"), TEST_BI);
     }
 }

@@ -1,5 +1,6 @@
 {
   "item.geotools.ruby": "Рубин",
   "block.geotools.total_station": "Тахеометр",
-  "block.geotools.reflector": "Уголковый отражатель"
+  "block.geotools.reflector": "Уголковый отражатель",
+  "block.geotools.test": "Тестовый блок"
 }
