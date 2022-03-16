@@ -7,7 +7,7 @@ public class GeoTasks {
     private double[] initXYZ = new double[3];
     private double[] finalXYZ = new double[3];
 
-    // TODO: реализовать изменение baseHeight и aimHeight
+    // TODO: Реализовать изменение baseHeight и aimHeight
 
     // Разность прямоугольных координат точек и базы
     private double[] diffInit = new double[3];
