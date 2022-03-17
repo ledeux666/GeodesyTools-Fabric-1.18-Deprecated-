@@ -25,5 +25,8 @@ public class ModRegister {
 
         Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "test"), TEST);
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "test"), TEST_BI);
+
+        Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "vertical_slab_block"), VERTICAL_SLAB_BLOCK);
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "vertical_slab_block"), VERTICAL_SLAB_BLOCK_BI);
     }
 }

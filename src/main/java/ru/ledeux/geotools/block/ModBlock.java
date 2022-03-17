@@ -12,18 +12,23 @@ import ru.ledeux.geotools.GeoTools;
 public class ModBlock {
 
     // Создание тахеометра в виде блока и предмета (BlockItems - BI)
-    public static final Block TOTAL_STATION = new TotalStation(
-            FabricBlockSettings.of(Material.METAL).strength(4.0f).nonOpaque());
-    public static final Item TOTAL_STATION_BI = new BlockItem(
-            TOTAL_STATION, new FabricItemSettings().group(GeoTools.GEOTOOLS));
+    public static final Block TOTAL_STATION =
+            new TotalStation(FabricBlockSettings.of(Material.METAL).strength(4.0f).nonOpaque());
+    public static final Item TOTAL_STATION_BI =
+            new BlockItem(TOTAL_STATION, new FabricItemSettings().group(GeoTools.GEOTOOLS));
 
-    public static final Block REFLECTOR = new Reflector(
-            FabricBlockSettings.of(Material.METAL).strength(4.0f).nonOpaque());
-    public static final Item REFLECTOR_BI = new BlockItem(
-            REFLECTOR, new FabricItemSettings().group(GeoTools.GEOTOOLS));
+    public static final Block REFLECTOR =
+            new Reflector(FabricBlockSettings.of(Material.METAL).strength(4.0f).nonOpaque());
+    public static final Item REFLECTOR_BI =
+            new BlockItem(REFLECTOR, new FabricItemSettings().group(GeoTools.GEOTOOLS));
 
-    public static final Block TEST = new Test(
-            FabricBlockSettings.of(Material.METAL).strength(4.0f).nonOpaque());
-    public static final Item TEST_BI = new BlockItem(
-            TEST, new FabricItemSettings().group(GeoTools.GEOTOOLS));
+    public static final Block TEST =
+            new Test(FabricBlockSettings.of(Material.METAL).strength(4.0f).nonOpaque());
+    public static final Item TEST_BI =
+            new BlockItem(TEST, new FabricItemSettings().group(GeoTools.GEOTOOLS));
+
+    public static final Block VERTICAL_SLAB_BLOCK =
+            new VerticalSlabBlock(FabricBlockSettings.of(Material.METAL).strength(4.0f).nonOpaque());
+    public static final Item VERTICAL_SLAB_BLOCK_BI =
+            new BlockItem(VERTICAL_SLAB_BLOCK, new FabricItemSettings().group(GeoTools.GEOTOOLS));
 }
