@@ -1,6 +1,11 @@
 {
+  "itemGroup.geotools.general": "GeodesyTools",
+
   "item.geotools.ruby": "Ruby",
+
   "block.geotools.total_station": "Total station",
   "block.geotools.reflector": "Reflector",
-  "block.geotools.test": "Test block"
+  "block.geotools.test": "Test block",
+  "block.geotools.vertical_slab_block": "Vertical Slab",
+  "block.geotools.tripod": "Tripod"
 }

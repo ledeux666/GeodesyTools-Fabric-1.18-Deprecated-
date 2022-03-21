@@ -1,6 +1,11 @@
 {
+  "itemGroup.geotools.general": "GeodesyTools",
+
   "item.geotools.ruby": "Рубин",
+
   "block.geotools.total_station": "Тахеометр",
   "block.geotools.reflector": "Уголковый отражатель",
-  "block.geotools.test": "Тестовый блок"
+  "block.geotools.test": "Тестовый блок",
+  "block.geotools.vertical_slab_block": "Вертикальный полублок",
+  "block.geotools.tripod": "Штатив"
 }

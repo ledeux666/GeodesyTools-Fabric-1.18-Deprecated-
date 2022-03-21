@@ -15,20 +15,25 @@ public class ModBlock {
     public static final Block TOTAL_STATION =
             new TotalStation(FabricBlockSettings.of(Material.METAL).strength(4.0f).nonOpaque());
     public static final Item TOTAL_STATION_BI =
-            new BlockItem(TOTAL_STATION, new FabricItemSettings().group(GeoTools.GEOTOOLS));
+            new BlockItem(TOTAL_STATION, new FabricItemSettings().group(GeoTools.GEOTOOLS).maxCount(64));
 
     public static final Block REFLECTOR =
             new Reflector(FabricBlockSettings.of(Material.METAL).strength(4.0f).nonOpaque());
     public static final Item REFLECTOR_BI =
-            new BlockItem(REFLECTOR, new FabricItemSettings().group(GeoTools.GEOTOOLS));
+            new BlockItem(REFLECTOR, new FabricItemSettings().group(GeoTools.GEOTOOLS).maxCount(64));
+
+    public static final Block TRIPOD =
+            new Tripod(FabricBlockSettings.of(Material.WOOD).strength(4.0f).nonOpaque());
+    public static final Item TRIPOD_BI =
+            new BlockItem(TRIPOD, new FabricItemSettings().group(GeoTools.GEOTOOLS).maxCount(64));
 
     public static final Block TEST =
             new Test(FabricBlockSettings.of(Material.METAL).strength(4.0f).nonOpaque());
     public static final Item TEST_BI =
-            new BlockItem(TEST, new FabricItemSettings().group(GeoTools.GEOTOOLS));
+            new BlockItem(TEST, new FabricItemSettings().group(GeoTools.GEOTOOLS).maxCount(64));
 
     public static final Block VERTICAL_SLAB_BLOCK =
-            new VerticalSlabBlock(FabricBlockSettings.of(Material.METAL).strength(4.0f).nonOpaque());
+            new VerticalSlabBlock(FabricBlockSettings.of(Material.STONE).strength(4.0f).nonOpaque());
     public static final Item VERTICAL_SLAB_BLOCK_BI =
-            new BlockItem(VERTICAL_SLAB_BLOCK, new FabricItemSettings().group(GeoTools.GEOTOOLS));
+            new BlockItem(VERTICAL_SLAB_BLOCK, new FabricItemSettings().group(GeoTools.GEOTOOLS).maxCount(64));
 }

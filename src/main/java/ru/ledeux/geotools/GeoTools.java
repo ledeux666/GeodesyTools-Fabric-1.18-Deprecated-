@@ -8,6 +8,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
 import ru.ledeux.geotools.util.ModRegister;
 
+import static ru.ledeux.geotools.block.ModBlock.REFLECTOR;
+
 // Чтобы добавить дополнительное поведение предмету, необходимо сделать собственный класс предмета.
 
 // Главный класс мода (входная точка)
@@ -19,8 +21,7 @@ public class GeoTools implements ModInitializer {
 
     // Создание креативной вкладки для предметов мода
     public static final ItemGroup GEOTOOLS = FabricItemGroupBuilder.build(
-            new Identifier(MOD_ID, "general"),
-            () -> new ItemStack(Blocks.BLUE_CANDLE));
+            new Identifier(MOD_ID, "general"), () -> new ItemStack(REFLECTOR));
 
     // Наследованный метод инициализации зарегистрированных предметов, блоков, сущностей и т.д.
     @Override
