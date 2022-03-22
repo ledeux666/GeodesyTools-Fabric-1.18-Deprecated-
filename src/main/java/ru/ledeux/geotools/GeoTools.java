@@ -2,12 +2,16 @@ package ru.ledeux.geotools;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
-import net.minecraft.block.Blocks;
+import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
+import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
+import ru.ledeux.geotools.block.entity.DemoBlockEntity;
 import ru.ledeux.geotools.util.ModRegister;
 
+import static ru.ledeux.geotools.block.ModBlock.DEMO_BLOCK;
 import static ru.ledeux.geotools.block.ModBlock.REFLECTOR;
 
 // Чтобы добавить дополнительное поведение предмету, необходимо сделать собственный класс предмета.
@@ -19,6 +23,8 @@ public class GeoTools implements ModInitializer {
     public static final String MOD_ID = "geotools";
     public static final String MOD_NAME = "GeodesyTools";
 
+    public static BlockEntityType<DemoBlockEntity> DEMO_BLOCK_ENTITY;
+
     // Создание креативной вкладки для предметов мода
     public static final ItemGroup GEOTOOLS = FabricItemGroupBuilder.build(
             new Identifier(MOD_ID, "general"), () -> new ItemStack(REFLECTOR));
@@ -29,5 +35,8 @@ public class GeoTools implements ModInitializer {
 
         ModRegister.registerItems();
         ModRegister.registerBlocks();
+
+        DEMO_BLOCK_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, "geotools:demo_block_entity",
+                FabricBlockEntityTypeBuilder.create(DemoBlockEntity::new, DEMO_BLOCK).build(null));
     }
 }

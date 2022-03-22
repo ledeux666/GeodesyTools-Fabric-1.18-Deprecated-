@@ -26,10 +26,18 @@ public class ModRegister {
         Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "tripod"), TRIPOD);
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "tripod"), TRIPOD_BI);
 
-        Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "test"), TEST);
-        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "test"), TEST_BI);
+        Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "forced_centering_pylon"), FORCED_CENTERING_PYLON);
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "forced_centering_pylon"), FORCED_CENTERING_PYLON_BI);
+
+        Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "test"), DEMO_BLOCK);
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "test"), DEMO_BLOCK_BI);
 
         Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "vertical_slab_block"), VERTICAL_SLAB_BLOCK);
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "vertical_slab_block"), VERTICAL_SLAB_BLOCK_BI);
+    }
+
+    public static void registerBlockEntities() {
+
+
     }
 }
