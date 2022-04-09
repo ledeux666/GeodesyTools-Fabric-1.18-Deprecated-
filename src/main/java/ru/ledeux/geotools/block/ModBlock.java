@@ -37,6 +37,11 @@ public class ModBlock {
     public static final Item DEMO_BLOCK_BI =
             new BlockItem(DEMO_BLOCK, new FabricItemSettings().group(GeoTools.GEOTOOLS).maxCount(64));
 
+    public static final Block STATE_TEST =
+            new StateTest(FabricBlockSettings.of(Material.METAL).strength(4.0f).nonOpaque());
+    public static final Item STATE_TEST_BI =
+            new BlockItem(STATE_TEST, new FabricItemSettings().group(GeoTools.GEOTOOLS).maxCount(64));
+
     public static final Block VERTICAL_SLAB_BLOCK =
             new VerticalSlabBlock(FabricBlockSettings.of(Material.STONE).strength(4.0f).nonOpaque());
     public static final Item VERTICAL_SLAB_BLOCK_BI =

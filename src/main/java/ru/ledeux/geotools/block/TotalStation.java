@@ -2,63 +2,41 @@ package ru.ledeux.geotools.block;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.SignBlock;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LightningEntity;
+import net.minecraft.block.HorizontalFacingBlock;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
-import net.minecraft.state.property.BooleanProperty;
+import net.minecraft.state.property.Properties;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 
-// Класс тахеометра, расширяющий функционал родительского класса Block
-public class TotalStation extends Block {
+public class TotalStation extends HorizontalFacingBlock {
 
-    // Наследование родительского конструктора класса
-    public TotalStation(Settings settings) {
+    protected TotalStation(Settings settings) {
         super(settings);
-        setDefaultState(getStateManager().getDefaultState().with(LAUNCHED, false));
+        setDefaultState(this.stateManager.getDefaultState().with(Properties.HORIZONTAL_FACING, Direction.NORTH));
     }
-
-    // Добавление нового свойства блоку (Запущен)
-    public static final BooleanProperty LAUNCHED = BooleanProperty.of("launched");
 
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> stateManager) {
-        stateManager.add(LAUNCHED);
+        stateManager.add(Properties.HORIZONTAL_FACING);
     }
 
-    // Смена состояния LAUNCHED на True при нажатии ПКМ по нему
-    // Данный метод устарел, в новом не используется BlockState и BlockPos
-    // TODO: Исключить устаревший метод
+    @Override
+    public BlockState getPlacementState(ItemPlacementContext ctx) {
+        return (BlockState)this.getDefaultState().with(Properties.HORIZONTAL_FACING, ctx.getPlayerFacing().getOpposite());
+    }
+
+    // TODO: По нажатию ПКМ по блоку необходимо войти в режим отметки отражателей
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand,
                               BlockHitResult hit) {
-        // Воспроизведение звука при смене состояния
-        player.playSound(SoundEvents.BLOCK_RESPAWN_ANCHOR_CHARGE, 1, 1);
-        world.setBlockState(pos, state.with(LAUNCHED, true));
+        player.playSound(SoundEvents.ITEM_SPYGLASS_USE, 1, 1);
         return ActionResult.SUCCESS;
     }
-
-    // Использование свойства LAUNCHED для вызова молнии при вставании игрока на блок
-    @Override
-    public void onSteppedOn(World world, BlockPos pos, BlockState state, Entity entity) {
-        if (world.getBlockState(pos).get(LAUNCHED)){
-            LightningEntity lightningEntity = (LightningEntity) EntityType.LIGHTNING_BOLT.create(world);
-            lightningEntity.refreshPositionAfterTeleport(Vec3d.ofBottomCenter(pos));
-            world.spawnEntity(lightningEntity);
-        }
-
-        // Смена состояние после вставания на блок
-        world.setBlockState(pos, state.with(LAUNCHED, false));
-    }
-
-    // TODO: Координаты связаны с классами по типу BlockPos
-    // TODO: Сделать блок поворачиваемым, на подобии таблички (класс SignBlock)
 }

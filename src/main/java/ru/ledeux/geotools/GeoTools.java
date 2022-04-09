@@ -23,8 +23,6 @@ public class GeoTools implements ModInitializer {
     public static final String MOD_ID = "geotools";
     public static final String MOD_NAME = "GeodesyTools";
 
-    public static BlockEntityType<DemoBlockEntity> DEMO_BLOCK_ENTITY;
-
     // Создание креативной вкладки для предметов мода
     public static final ItemGroup GEOTOOLS = FabricItemGroupBuilder.build(
             new Identifier(MOD_ID, "general"), () -> new ItemStack(REFLECTOR));
@@ -35,8 +33,5 @@ public class GeoTools implements ModInitializer {
 
         ModRegister.registerItems();
         ModRegister.registerBlocks();
-
-        DEMO_BLOCK_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, "geotools:demo_block_entity",
-                FabricBlockEntityTypeBuilder.create(DemoBlockEntity::new, DEMO_BLOCK).build(null));
     }
 }
