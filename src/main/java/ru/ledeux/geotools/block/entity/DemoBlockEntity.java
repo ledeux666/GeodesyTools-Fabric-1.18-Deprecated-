@@ -12,6 +12,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
+import ru.ledeux.geotools.GeoTools;
 import ru.ledeux.geotools.util.ImplementedInventory;
 
 public class DemoBlockEntity extends BlockEntity implements ImplementedInventory, SidedInventory {
@@ -19,7 +20,7 @@ public class DemoBlockEntity extends BlockEntity implements ImplementedInventory
     private int number = 7;
 
     public DemoBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntity.DEMO_BLOCK_ENTITY, pos, state);
+        super(GeoTools.DEMO_BLOCK_ENTITY, pos, state);
     }
 
     // Сериализация (сохранение) параметров у DemoBlockEntity.

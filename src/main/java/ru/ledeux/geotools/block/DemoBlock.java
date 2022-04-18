@@ -13,8 +13,8 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import ru.ledeux.geotools.GeoTools;
 import ru.ledeux.geotools.block.entity.DemoBlockEntity;
-import ru.ledeux.geotools.block.entity.ModBlockEntity;
 
 public class DemoBlock extends BlockWithEntity {
 
@@ -38,7 +38,7 @@ public class DemoBlock extends BlockWithEntity {
     // Связка блока с внутренним счетчиком тиков Minecraft.
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return checkType(type, ModBlockEntity.DEMO_BLOCK_ENTITY, DemoBlockEntity::tick);
+        return checkType(type, GeoTools.DEMO_BLOCK_ENTITY, DemoBlockEntity::tick);
     }
 
     @Override

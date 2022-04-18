@@ -17,7 +17,7 @@ import net.minecraft.world.World;
 
 public class TotalStation extends HorizontalFacingBlock {
 
-    protected TotalStation(Settings settings) {
+    public TotalStation(Settings settings) {
         super(settings);
         setDefaultState(this.stateManager.getDefaultState().with(Properties.HORIZONTAL_FACING, Direction.NORTH));
     }
