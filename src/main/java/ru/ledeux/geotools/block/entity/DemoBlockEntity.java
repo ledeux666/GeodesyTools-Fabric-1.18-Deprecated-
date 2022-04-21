@@ -17,31 +17,24 @@ import ru.ledeux.geotools.util.ImplementedInventory;
 
 public class DemoBlockEntity extends BlockEntity implements ImplementedInventory, SidedInventory {
 
-    private int number = 7;
-
     public DemoBlockEntity(BlockPos pos, BlockState state) {
         super(GeoTools.DEMO_BLOCK_ENTITY, pos, state);
     }
 
-    // Сериализация (сохранение) параметров у DemoBlockEntity.
-    // TODO: Обратить внимание на этот метод.
-    //  В примере возращаемое значение должно быть NbtCompound.
-    //  return super.writeNbt(nbt);
-    @Override
-    public void writeNbt(NbtCompound nbt) {
-        // Сохранение настоящего значения number в tag.
-        nbt.putInt("number", number);
-        Inventories.writeNbt(nbt, items);
-        super.writeNbt(nbt);
-    }
-
-    // Десериализация (чтение) параметров у DemoBlockEntity.
+    // Десериализация (чтение) параметров у BlockEntity.
     @Override
     public void readNbt(NbtCompound nbt) {
+
         super.readNbt(nbt);
-        // Получение значения number из tag
-        number = nbt.getInt("number");
-        Inventories.readNbt(nbt, items);
+        Inventories.readNbt(nbt, this.inventory);
+    }
+
+    // Сериализация (запись) параметров у BlockEntity.
+    @Override
+    protected void writeNbt(NbtCompound nbt) {
+
+        super.writeNbt(nbt);
+        Inventories.writeNbt(nbt, this.inventory);
     }
 
     // Определение действий BlockEntity в зависимости от внутреннего времени Minecraft.
@@ -53,16 +46,16 @@ public class DemoBlockEntity extends BlockEntity implements ImplementedInventory
      * Реализация имплементрированных методов из интерфеса ImplementedInventory.
      * Все методы наследуют такой же функционал, что и в интерфейсе.
      */
-    private final DefaultedList<ItemStack> items = DefaultedList.ofSize(2, ItemStack.EMPTY);
+    private DefaultedList<ItemStack> inventory = DefaultedList.ofSize(this.size(), ItemStack.EMPTY);
 
     @Override
     public DefaultedList<ItemStack> getItems() {
-        return items;
+        return inventory;
     }
 
     @Override
     public int size() {
-        return ImplementedInventory.super.size();
+        return 2;
     }
 
     @Override
